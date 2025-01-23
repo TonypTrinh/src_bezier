@@ -85,3 +85,5 @@ function mouseReleased(){
     bezierPoints[i].relativY=undefined
   } 
 }
+
+let k=0;
