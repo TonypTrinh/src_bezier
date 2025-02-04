@@ -98,5 +98,4 @@ function createPoint(){
     
   }
 }
-
 let k=0;
