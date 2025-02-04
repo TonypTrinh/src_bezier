@@ -14,7 +14,7 @@ let pd=20
 let bezierPoints = [P0,P1,P2,P3]
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 800);
 }
 
 function draw() {
@@ -26,7 +26,7 @@ function draw() {
   }
   drawPoints()
   supportLines()
-  text("Click & drag the points to change the bézier curve",50,375)
+  text("Click & drag the points to change the bézier curve",10,20)
 }
 
 function calcBezier(t){
