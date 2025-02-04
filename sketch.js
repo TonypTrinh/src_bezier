@@ -27,6 +27,7 @@ function draw() {
   drawPoints()
   supportLines()
   text("Click & drag the points to change the bézier curve",10,20)
+  bezierButton()
 }
 
 function calcBezier(t){
@@ -84,4 +85,9 @@ function mouseReleased(){
     bezierPoints[i].relativX=undefined
     bezierPoints[i].relativY=undefined
   } 
+}
+
+function bezierButton(){
+  let bButton = createButton('Punkt')
+  bButton.position(900,700)
 }
