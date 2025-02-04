@@ -19,16 +19,16 @@ function setup() {
 
 function draw() {
   background(220);
-  movePoint()
-  for(let t=0; t<1; t+=0.001){
+ movePoint()
+    for(let t=0; t<1; t+=0.001){
     calcBezier(t);
     drawBezier();
-  }
+    }
   drawPoints()
   supportLines()
   text("Click & drag the points to change the bézier curve",10,20)
   bezierButton()
-}
+  }
 
 function calcBezier(t){
   A.x=lerp(P0.x,P1.x,t)
@@ -78,6 +78,7 @@ function mousePressed(){
       bezierPoints[i].relativY=bezierPoints[i].y-mouseY
     }
   } 
+  bezierPoint.push(x:random(0,1000),y:random(0,700),relativX:undefined,relativY:undefined)
 }
 
 function mouseReleased(){
@@ -88,6 +89,12 @@ function mouseReleased(){
 }
 
 function bezierButton(){
-  let bButton = createButton('Punkt')
+  let bButton = createButton('Punkt'[createPoint])
   bButton.position(900,700)
+}
+
+function createPoint(){
+  for(i=0;i>-1;i++){
+    
+  }
 }
