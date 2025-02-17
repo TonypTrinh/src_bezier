@@ -5,35 +5,46 @@ let P3 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
 let P31 = {x: 351, y: 351, relativX: undefined, relativY: undefined};
 let P4 = {x: 400, y: 50, relativX: undefined, relativY: undefined};
 let P5 = {x: 600, y: 50, relativX: undefined, relativY: undefined};
-let P6 = {x: 650, y: 50, relativX: undefined, relativY: undefined};
+let P6 = {x: 650, y: 350, relativX: undefined, relativY: undefined};
 let A = {x: undefined, y: undefined};
 let B = {x: undefined, y: undefined};
 let C = {x: undefined, y: undefined};
 let D = {x: undefined, y: undefined};
 let E = {x: undefined, y: undefined};
 let P = {x: undefined, y: undefined};
-let t=0
+let A1 = {x: undefined, y: undefined};
+let B1 = {x: undefined, y: undefined};
+let C1 = {x: undefined, y: undefined};
+let D1 = {x: undefined, y: undefined};
+let E1 = {x: undefined, y: undefined};
+let p1 = {x: undefined, y: undefined};
+let t = 0 
+let e = 0
 let pd=20
 
-let bezierPoints = [P0,P1,P2,P3,P31,P4,P5,P6]
+let bezierPoints = [P0,P1,P2,P3,P4,P5,P6]
 
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(1500, 800);
 }
 
 function draw() {
   background(220);
  movePoint()
-    for(let t=0; t<1; t+=0.001){
+  for(let t=0; t<1; t+=0.001){
     calcSpline1(t);
     drawSpline1();
-    calcSpline2(t);
-    drawSpline2();
     }
   drawPoints()
-  supportLines()
+  
   text("Click & drag the points to change the bézier curve",10,20)
+    for(let e=0; e<1; e+=0.001){
+      calcSpline2(e);
+      drawSpline2();
+    }
+    //supportLines()
   }
+
 
 function calcSpline1(t){
   A.x=lerp(P0.x,P1.x,t)
@@ -51,26 +62,26 @@ function calcSpline1(t){
   
 }
 
-function calcSpline2(t){
-  A1.x=lerp(P31.x,P4.x,t)
-  A1.y=lerp(P31.y,P4.y,t)
-  B1.x=lerp(P4.x,P5.x,t)
-  B1.y=lerp(P4.y,P5.y,t)
-  C1.x=lerp(P5.x,P6.x,t)
-  C1.y=lerp(P5.y,P6.y,t)
-  D1.x=lerp(A1.x,B1.x,t)
-  D1.y=lerp(A1.y,B1.y,t)
-  E1.x=lerp(B1.x,C1.x,t)
-  E1.y=lerp(B1.y,C1.y,t)
-  p1.x=lerp(D1.x,E1.x,t)
-  p1.y=lerp(D1.y,E1.y,t)
+function calcSpline2(e){
+  A1.x=lerp(P3.x,P4.x,e)
+  A1.y=lerp(P3.y,P4.y,e)
+  B1.x=lerp(P4.x,P5.x,e)
+  B1.y=lerp(P4.y,P5.y,e)
+  C1.x=lerp(P5.x,P6.x,e)
+  C1.y=lerp(P5.y,P6.y,e)
+  D1.x=lerp(A1.x,B1.x,e)
+  D1.y=lerp(A1.y,B1.y,e)
+  E1.x=lerp(B1.x,C1.x,e)
+  E1.y=lerp(B1.y,C1.y,e)
+  p1.x=lerp(D1.x,E1.x,e)
+  p1.y=lerp(D1.y,E1.y,e)
 }
 
-function supportLines(){
-  line(P0.x,P0.y,P1.x,P1.y);
-  line(P1.x,P1.y,P2.x,P2.y);
-  line(P2.x,P2.y,P3.x,P3.y);
-}
+//function supportLines(){
+ // line(P0.x,P0.y,P1.x,P1.y);
+//  line(P1.x,P1.y,P2.x,P2.y);
+//  line(P2.x,P2.y,P3.x,P3.y);
+//}
 
 function drawSpline1(){
   circle(P.x,P.y,15);
@@ -85,6 +96,12 @@ function drawPoints(){
   circle(P1.x,P1.y,pd);
   circle(P2.x,P2.y,pd);
   circle(P3.x,P3.y,pd);
+
+  
+  circle(P4.x,P4.y,pd)
+  circle(P5.x,P5.y,pd)
+  circle(P6.x,P6.y,pd)
+
 }
 
 function movePoint(){
